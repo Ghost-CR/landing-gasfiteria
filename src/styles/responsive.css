@@ -1,47 +1,26 @@
-@media (max-width: 760px) {
-  .nav-links {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 48px;
+    gap: 36px;
+    padding-top: 40px;
   }
 
-  .hero-art {
-    order: -1;
-    max-width: 340px;
-    margin: 0 auto 8px;
-  }
-}
-
-@media (max-width: 640px) {
-  .svc-row {
-    grid-template-columns: 36px 1fr;
-    column-gap: 14px;
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
-  .svc-icon {
-    width: 34px;
-    height: 34px;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .svc-code {
-    display: none;
+  .promise-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
 
-  .svc-tag {
-    grid-column: 1 / -1;
-    justify-self: start;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 800px) {
   .process-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .process-grid::before {
@@ -50,6 +29,10 @@
 
   .step:nth-child(3) {
     border-left: none;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
   }
 
   .coverage {
@@ -63,7 +46,33 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-phone {
+    display: none;
+  }
+
+  .hero {
+    padding: 32px 0 40px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .process-grid {
     grid-template-columns: 1fr;
   }
@@ -71,17 +80,60 @@
   .step {
     border-left: none;
     border-top: 1px solid var(--line);
-    padding-left: 0;
-    padding-right: 0;
+    padding: 24px 0;
   }
 
   .step:first-child {
     border-top: none;
   }
-}
 
-@media (max-width: 700px) {
   .foot-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Sticky mobile bottom bar */
+  .sticky-mobile-bar {
+    display: block;
+  }
+
+  .wa-float {
+    display: none; /* In mobile, replaced by sticky bar */
+  }
+
+  body {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo-badge {
+    font-size: 11.5px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .fast-quote-card {
+    padding: 24px 18px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .urgency-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-on-copper {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -1,20 +1,33 @@
-import { BrandMark } from '../shared/InlineIcons.jsx';
+import { BrandMark, PhoneIcon } from '../shared/InlineIcons.jsx';
+import { brandConfig } from '../../data/content.js';
 
 function Header() {
   return (
     <header>
       <nav className="nav wrap">
-        <div className="brand">
+        <a href="#" className="brand">
           <BrandMark />
-          <span>Gasfitería Rioseco</span>
-        </div>
+          <div className="brand-text">
+            <span>{brandConfig.name}</span>
+            <small>{brandConfig.coverage}</small>
+          </div>
+        </a>
+
         <div className="nav-links">
           <a href="#servicios">Servicios</a>
+          <a href="#garantia">Garantía</a>
           <a href="#proceso">Cómo trabajamos</a>
-          <a href="#cobertura">Cobertura</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#opiniones">Opiniones</a>
+          <a href="#faq">Preguntas</a>
         </div>
-        <a className="nav-cta" href="#contacto">Pedir visita</a>
+
+        <div className="nav-actions">
+          <a className="nav-phone" href={`tel:${brandConfig.phoneCall}`}>
+            <PhoneIcon size={16} />
+            <span>{brandConfig.phoneDisplay}</span>
+          </a>
+          <a className="nav-cta" href="#cotizador">Pedir visita</a>
+        </div>
       </nav>
     </header>
   );

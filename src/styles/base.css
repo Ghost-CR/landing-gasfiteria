@@ -1,14 +1,27 @@
 :root {
   --ink: #0F3B3D;
+  --ink-dark: #082223;
+  --ink-soft: #184c4f;
   --paper: #EEF3F1;
   --paper-2: #E1EAE6;
   --steel: #5C7B76;
-  --steel-light: #9DB6AF;
+  --steel-light: #8FAEA7;
   --copper: #A8752E;
-  --copper-dark: #8A5F22;
+  --copper-hover: #8F6224;
+  --copper-light: #F7EFE5;
   --line: #C6D6D0;
+  --line-light: #DCE6E2;
   --white: #FBFCFB;
-  --maxw: 1120px;
+  --emerald: #1B8C54;
+  --emerald-light: #E7F6EE;
+  --maxw: 1140px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 6px rgba(15, 59, 61, 0.05);
+  --shadow: 0 8px 24px rgba(15, 59, 61, 0.08);
+  --shadow-lg: 0 16px 36px rgba(15, 59, 61, 0.12);
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -25,14 +38,14 @@ html {
 body {
   background:
     linear-gradient(var(--paper), var(--paper)) fixed,
-    repeating-linear-gradient(0deg, rgba(15, 59, 61, .05) 0 1px, transparent 1px 88px),
-    repeating-linear-gradient(90deg, rgba(15, 59, 61, .05) 0 1px, transparent 1px 88px),
+    repeating-linear-gradient(0deg, rgba(15, 59, 61, .035) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(90deg, rgba(15, 59, 61, .035) 0 1px, transparent 1px 72px),
     var(--paper);
   background-attachment: fixed;
   color: var(--ink);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   color-scheme: light;
 }
@@ -40,11 +53,12 @@ body {
 h1,
 h2,
 h3,
+h4,
 .disp {
   font-family: 'Space Grotesk', sans-serif;
   color: var(--ink);
-  line-height: 1.08;
-  letter-spacing: -.01em;
+  line-height: 1.15;
+  letter-spacing: -.015em;
 }
 
 a {
@@ -66,7 +80,9 @@ svg {
 
 /* Skip link / focus */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
   outline: 2px solid var(--copper);
   outline-offset: 3px;
 }

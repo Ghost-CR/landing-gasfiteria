@@ -1,4 +1,4 @@
-import { footerServices } from '../../data/content.js';
+import { brandConfig, footerServices } from '../../data/content.js';
 
 function Footer() {
   return (
@@ -6,28 +6,37 @@ function Footer() {
       <div className="wrap">
         <div className="foot-grid">
           <div>
-            <div className="foot-brand">Gasfitería Rioseco</div>
-            <p>Servicio de gasfitería residencial en Viña del Mar, Reñaca y Concón. Diagnóstico, cotización y reparación en la misma visita cuando es posible.</p>
+            <div className="foot-brand">{brandConfig.name}</div>
+            <p className="foot-desc">
+              Servicio de gasfitería residencial y comercial en Viña del Mar, Reñaca y Concón. Diagnóstico técnico, cotización cerrada y 6 meses de garantía por escrito.
+            </p>
           </div>
+
           <div>
-            <h4>Contacto</h4>
+            <h4>Contacto & Urgencias</h4>
             <ul>
-              <li>+56 9 0000 0000 (demo)</li>
-              <li>contacto@gasfiteriarioseco.cl</li>
-              <li>Lunes a sábado, 8:00–20:00</li>
-              <li>Urgencias fuera de horario</li>
+              <li>📞 {brandConfig.phoneDisplay} (Llamadas & WhatsApp)</li>
+              <li>✉️ {brandConfig.email}</li>
+              <li>🕒 {brandConfig.hours}</li>
+              <li>📍 Atención en terreno en toda la V Región costa</li>
             </ul>
           </div>
+
           <div>
-            <h4>Servicios</h4>
+            <h4>Especialidades</h4>
             <ul>
-              {footerServices.map((service) => <li key={service}>{service}</li>)}
+              {footerServices.map((service, index) => (
+                <li key={index}>
+                  <a href="#servicios">{service}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
+
         <div className="foot-bottom">
-          <span>Gasfitería Rioseco — Viña del Mar</span>
-          <span>Landing de portafolio · datos de contacto de ejemplo</span>
+          <span>{brandConfig.name} — Viña del Mar</span>
+          <span>Plantilla de demostración · Diseño optimizado para portafolio comercial</span>
         </div>
       </div>
     </footer>
