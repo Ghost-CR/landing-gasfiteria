@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { WhatsAppIcon } from '../shared/InlineIcons.jsx';
+import { ClipboardIcon, WhatsAppIcon } from '../shared/InlineIcons.jsx';
 import { brandConfig } from '../../data/content.js';
 
 function FastQuoteCard() {
@@ -23,32 +23,21 @@ function FastQuoteCard() {
 
   return (
     <div className="fast-quote-card" id="cotizador">
-      <span className="card-badge">Cotizador Rápido</span>
-      <h2 className="quote-title">Solicita tu visita técnica</h2>
-      <p className="quote-desc">Coordinamos tu atención y diagnóstico en terreno en minutos vía WhatsApp.</p>
-
-      {/* Segment tabs */}
-      <div className="type-tabs" role="tablist">
-        <button
-          type="button"
-          className={`type-tab-btn ${propertyType === 'Hogar / Depto' ? 'active' : ''}`}
-          onClick={() => setPropertyType('Hogar / Depto')}
-        >
-          🏠 Residencial
-        </button>
-        <button
-          type="button"
-          className={`type-tab-btn ${propertyType === 'Comunidad / Comercial' ? 'active' : ''}`}
-          onClick={() => setPropertyType('Comunidad / Comercial')}
-        >
-          🏢 Edificio / Local
-        </button>
+      <div className="quote-heading">
+        <div className="quote-icon" aria-hidden="true">
+          <ClipboardIcon />
+        </div>
+        <div>
+          <span className="card-badge">Cotizador rápido</span>
+          <h2 className="quote-title">Cotiza tu visita</h2>
+        </div>
       </div>
+      <p className="quote-desc">Coordinamos tu atención y diagnóstico en terreno en minutos vía WhatsApp.</p>
 
       {/* Problem Selector */}
       <div className="form-group">
         <label className="form-label" htmlFor="serviceSelect">
-          ¿Cuál es el problema principal?
+          ¿Qué necesitas?
         </label>
         <select
           className="form-select"
@@ -64,10 +53,32 @@ function FastQuoteCard() {
         </select>
       </div>
 
+      <div className="form-group type-group">
+        <span className="form-label">Tipo de propiedad</span>
+        <div className="type-tabs" role="group" aria-label="Tipo de propiedad">
+          <button
+            type="button"
+            className={`type-tab-btn ${propertyType === 'Hogar / Depto' ? 'active' : ''}`}
+            aria-pressed={propertyType === 'Hogar / Depto'}
+            onClick={() => setPropertyType('Hogar / Depto')}
+          >
+            🏠 Residencial
+          </button>
+          <button
+            type="button"
+            className={`type-tab-btn ${propertyType === 'Comunidad / Comercial' ? 'active' : ''}`}
+            aria-pressed={propertyType === 'Comunidad / Comercial'}
+            onClick={() => setPropertyType('Comunidad / Comercial')}
+          >
+            🏢 Edificio / Local
+          </button>
+        </div>
+      </div>
+
       {/* Location Selector */}
       <div className="form-group">
         <label className="form-label" htmlFor="comunaSelect">
-          ¿En qué sector te encuentras?
+          Comuna
         </label>
         <select
           className="form-select"
@@ -104,7 +115,7 @@ function FastQuoteCard() {
         rel="noopener"
       >
         <WhatsAppIcon size={20} />
-        Pedir presupuesto por WhatsApp
+        Cotizar por WhatsApp
       </a>
       <p className="quote-footer-text">
         🔒 Sin costo de diagnóstico si realizas la reparación con nosotros.

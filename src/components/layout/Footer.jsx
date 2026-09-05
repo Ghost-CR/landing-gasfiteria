@@ -15,8 +15,12 @@ function Footer() {
           <div>
             <h4>Contacto & Urgencias</h4>
             <ul>
-              <li>📞 {brandConfig.phoneDisplay} (Llamadas & WhatsApp)</li>
-              <li>✉️ {brandConfig.email}</li>
+              <li>
+                <a href={`tel:${brandConfig.phoneCall}`}>📞 {brandConfig.phoneDisplay} (Llamadas & WhatsApp)</a>
+              </li>
+              <li>
+                <a href={`mailto:${brandConfig.email}`}>✉️ {brandConfig.email}</a>
+              </li>
               <li>🕒 {brandConfig.hours}</li>
               <li>📍 Atención en terreno en toda la V Región costa</li>
             </ul>

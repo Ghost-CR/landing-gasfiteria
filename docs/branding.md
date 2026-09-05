@@ -1,10 +1,10 @@
-# Guía de branding — Gasfitería Rioseco
+# Guía de branding — Tu Gasfitería
 
-Versión 1.0 · Referencia de la landing de portafolio
+Versión 2.0 · Cierre visual de la landing de demostración
 
 ## 1. Esencia de marca
 
-Gasfitería Rioseco se presenta como un servicio residencial local, técnico y transparente para Viña del Mar, Reñaca y Concón.
+Tu Gasfitería se presenta como un servicio residencial local, técnico y transparente para Viña del Mar, Reñaca y Concón.
 
 ### Posicionamiento
 
@@ -37,7 +37,7 @@ La identidad combina una base verde petróleo con fondos verde grisáceos y un a
 | `--steel` | `#5C7B76` | Texto secundario, navegación y descripciones |
 | `--steel-light` | `#9DB6AF` | Numeración y detalles de baja prioridad |
 | `--copper` | `#A8752E` | CTA primario, acentos, indicadores y urgencias |
-| `--copper-dark` | `#8A5F22` | Estado hover del cobre |
+| `--copper-hover` | `#8F6224` | Estado hover del cobre |
 | `--line` | `#C6D6D0` | Bordes, divisores y contornos |
 | `--white` | `#FBFCFB` | Texto sobre fondos oscuros y superficies claras |
 
@@ -71,10 +71,10 @@ No introducir otra familia tipográfica sin una decisión explícita de branding
 
 ## 4. Logotipo y símbolo
 
-El logotipo está compuesto por el nombre **Gasfitería Rioseco** y un símbolo lineal de tuberías con dos puntos de conexión.
+El logotipo está compuesto por el nombre **Tu Gasfitería** y un símbolo lineal de tuberías con dos puntos de conexión.
 
 - El símbolo vive en `src/components/shared/InlineIcons.jsx`, dentro de `BrandMark`.
-- Su tamaño base es `30 × 30px`.
+- Su tamaño base es `32 × 32px`.
 - El cobre señala el recorrido y una conexión; el verde petróleo sostiene la estructura.
 - Mantener el símbolo como SVG inline para conservar nitidez y evitar dependencias de imagen.
 - No deformar, rotar, aplicar sombras ni cambiar sus colores sin actualizar primero los tokens de marca.
@@ -84,11 +84,13 @@ En fondos oscuros debe priorizarse una variante específica del símbolo antes q
 
 ## 5. Recursos gráficos
 
-La landing no utiliza fotografías. Su lenguaje visual se construye con diagramas SVG de líneas, cuadrículas, nodos y etiquetas técnicas:
+La landing combina fotografías editoriales propias con un sistema de iconos SVG de líneas y detalles técnicos:
 
-- La ilustración del hero representa una red de cañerías y un calefont.
+- El hero utiliza `src/assets/hero/tecnico-casa-costa.jpg`, una fotografía original de un técnico trabajando en un hogar costero.
+- Los servicios utilizan fotografías optimizadas en `src/assets/services/` para destapes, fugas y calefont.
+- Las fotografías deben conservar `alt`, `width`, `height`, `loading` y `decoding` para evitar saltos de layout y mantener accesibilidad.
 - El mapa de cobertura usa una forma abstracta, puntos de servicio y una ruta punteada.
-- Los servicios usan iconos lineales de 18–20px.
+- Los servicios usan iconos lineales de 20–22px sobre badges de cobre.
 - Las cinco estrellas del testimonio utilizan el color `--copper`.
 - El botón flotante de WhatsApp usa `#25A25A` y su hover `#1E8A4C`.
 
@@ -102,7 +104,8 @@ Los recursos gráficos deben apoyar la explicación del servicio; no agregar im�
 | Header | Identidad, navegación y CTA persistente | `components/layout/Header.jsx` |
 | Hero | Promesa principal, territorio y prueba de experiencia | `components/sections/Hero.jsx` |
 | Trust strip | Evidencias de transparencia y garantía | `components/sections/TrustStrip.jsx` |
-| Services list | Oferta concreta con precios o modalidad de cotización | `components/sections/ServicesSection.jsx` |
+| Services list | Tres servicios principales con fotografía, beneficios y modalidad de cotización | `components/sections/ServicesSection.jsx` |
+| Guarantee | Promesa de respaldo, diagnóstico y precio cerrado | `components/sections/GuaranteeSection.jsx` |
 | Process | Reduce incertidumbre explicando cuatro pasos | `components/sections/ProcessSection.jsx` |
 | Coverage | Refuerza cercanía geográfica | `components/sections/CoverageSection.jsx` |
 | Urgency banner | Acción inmediata para emergencias | `components/sections/UrgencyBanner.jsx` |
@@ -133,9 +136,10 @@ Mantener un único objetivo por bloque. No convertir etiquetas de precio o texto
 ## 8. Responsive y accesibilidad
 
 - Mantener el contenido legible desde móvil, sin cambiar el orden conceptual de las secciones.
-- A partir de `900px`, el arte del hero pasa sobre el texto para priorizar la ilustración en pantallas estrechas.
-- A partir de `760px`, la navegación textual se oculta; si se agrega un menú móvil, debe conservar los mismos anchors y recibir una decisión visual propia.
-- A partir de `640px`, los servicios pasan a dos columnas internas y el precio ocupa una fila completa.
+- Sobre `960px`, el hero usa una composición de dos columnas con la fotografía fundida detrás del copy y el cotizador a la derecha.
+- Entre `768px` y `960px`, el hero pasa a una columna manteniendo la fotografía como fondo del bloque de copy.
+- Hasta `768px`, la fotografía del hero pasa a una franja independiente sobre el copy; las tarjetas de servicios se apilan en una columna.
+- La navegación textual se oculta desde `960px` para evitar colisiones en tablets; el CTA de marca permanece visible.
 - Conservar el foco visible en enlaces y controles con el color `--copper`.
 - Respetar `prefers-reduced-motion: reduce`.
 - Mantener `aria-label` en el botón flotante de WhatsApp y `aria-hidden` en iconos decorativos.
@@ -154,6 +158,6 @@ No presentar datos de ejemplo como testimonios, precios o tiempos reales.
 
 ## 10. Fuente de implementación
 
-Los tokens visuales se mantienen en `src/styles/base.css`; la composición de layout está en `src/styles/layout.css`; las secciones viven en `src/styles/sections.css` y los breakpoints en `src/styles/responsive.css`.
+Los tokens visuales se mantienen en `src/styles/base.css`; la composición de layout está en `src/styles/layout.css`; las secciones viven en `src/styles/sections.css`, los breakpoints en `src/styles/responsive.css` y las fotografías se importan desde `src/assets`.
 
 Cuando se actualice el branding, cambiar primero los tokens y después revisar estados hover, contraste, SVG y componentes antes de modificar valores aislados.

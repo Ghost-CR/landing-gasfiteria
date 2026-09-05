@@ -1,8 +1,29 @@
 @media (max-width: 960px) {
+  .nav-links {
+    display: none;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 36px;
     padding-top: 40px;
+  }
+
+  .hero-visual {
+    min-height: 590px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    padding: 42px 28px 34px;
+  }
+
+  .hero-widget {
+    justify-content: center;
+  }
+
+  .hero-widget .fast-quote-card {
+    max-width: 640px;
   }
 
   .trust-grid {
@@ -14,9 +35,18 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .services-head {
+    align-items: flex-start;
+  }
+
   .promise-grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .promise-decoration {
+    right: -150px;
+    opacity: .07;
   }
 
   .process-grid {
@@ -59,6 +89,39 @@
     padding: 32px 0 40px;
   }
 
+  .hero-visual {
+    min-height: 0;
+    display: block;
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  .hero-image {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 240px;
+    object-position: 72% center;
+    border-radius: 22px;
+  }
+
+  .hero-image-overlay {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: none;
+    padding: 26px 0 0;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 9vw, 50px);
+  }
+
+  .hero-proof-line {
+    gap: 10px 16px;
+  }
+
   .hero-stats {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -66,6 +129,19 @@
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .services-head {
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  .services-head-link {
+    margin-top: -20px;
+  }
+
+  .svc-card-media {
+    aspect-ratio: 1.7 / 1;
   }
 
   .trust-grid {
@@ -115,6 +191,44 @@
 
   .fast-quote-card {
     padding: 24px 18px;
+  }
+
+  .quote-heading {
+    align-items: flex-start;
+  }
+
+  .promise-section {
+    padding: 64px 0 42px;
+  }
+
+  .promise-card {
+    padding: 24px 20px 20px;
+  }
+
+  .promise-card-heading h3 {
+    font-size: 23px;
+  }
+
+  .pillar-item {
+    grid-template-columns: 36px minmax(0, 1fr) 30px;
+    gap: 11px;
+    padding: 18px 0;
+  }
+
+  .pillar-num {
+    width: 36px;
+    height: 36px;
+  }
+
+  .pillar-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .promise-next-cue {
+    margin-top: 42px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .hero-ctas {
