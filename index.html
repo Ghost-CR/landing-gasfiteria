@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Gasfitería Rioseco — Viña del Mar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F3B3D;
+    --paper:#EEF3F1;
+    --paper-2:#E1EAE6;
+    --steel:#5C7B76;
+    --steel-light:#9DB6AF;
+    --copper:#A8752E;
+    --copper-dark:#8A5F22;
+    --line:#C6D6D0;
+    --white:#FBFCFB;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; color-scheme:light;}
+  body{
+    background:
+      linear-gradient(var(--paper), var(--paper)) fixed,
+      repeating-linear-gradient(0deg, rgba(15,59,61,.05) 0 1px, transparent 1px 88px),
+      repeating-linear-gradient(90deg, rgba(15,59,61,.05) 0 1px, transparent 1px 88px),
+      var(--paper);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    color-scheme:light;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--ink);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  img,svg{display:block; max-width:100%;}
+
+  /* Skip link / focus */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--copper); outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* Demo badge */
+  .demo-badge{
+    background:var(--ink); color:var(--white);
+    font-size:12px; letter-spacing:.02em; text-align:center;
+    padding:8px 12px;
+  }
+  .demo-badge b{color:#E8D19B;}
+
+  /* HEADER */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(238,243,241,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:600; font-size:19px;}
+  .brand-mark{width:30px; height:30px; flex:none;}
+  .nav-links{display:flex; gap:28px; font-size:14.5px; font-weight:500;}
+  .nav-links a{color:var(--steel); transition:color .15s;}
+  .nav-links a:hover{color:var(--copper);}
+  .nav-cta{
+    background:var(--copper); color:var(--white); padding:10px 18px;
+    font-size:14px; font-weight:600; white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--copper-dark);}
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{
+    padding:64px 0 56px;
+    display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
+  }
+  .kicker{
+    color:var(--copper); font-weight:600; font-size:14.5px; margin-bottom:14px;
+  }
+  h1{font-size:clamp(34px,5vw,54px); font-weight:700; margin-bottom:20px;}
+  .hero p.lead{
+    font-size:18px; color:var(--steel); max-width:46ch; margin-bottom:30px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .btn-primary{
+    background:var(--copper); color:var(--white); padding:15px 26px;
+    font-weight:600; font-size:15.5px; border:none; cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--copper-dark);}
+  .btn-ghost{
+    border:1.5px solid var(--ink); color:var(--ink); padding:14px 24px;
+    font-weight:600; font-size:15.5px;
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--white);}
+  .hero-stats{display:flex; gap:34px; padding-top:26px; border-top:1px solid var(--line);}
+  .hero-stats div{display:flex; flex-direction:column;}
+  .hero-stats .num{font-family:'Space Grotesk'; font-weight:700; font-size:26px; color:var(--ink);}
+  .hero-stats .lbl{font-size:13px; color:var(--steel);}
+
+  .hero-art{position:relative; border:1px solid var(--line); background:var(--white); padding:14px;}
+  .hero-art svg{width:100%; height:auto;}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; padding-top:48px;}
+    .hero-art{order:-1; max-width:340px; margin:0 auto 8px;}
+  }
+
+  /* TRUST STRIP */
+  .trust{
+    background:var(--ink); color:var(--paper-2);
+    padding:16px 0;
+  }
+  .trust .wrap{
+    display:flex; gap:40px; overflow-x:auto; font-size:13.5px; font-weight:500;
+    letter-spacing:.01em;
+  }
+  .trust span{white-space:nowrap; opacity:.85;}
+  .trust span b{color:var(--white); font-weight:600;}
+
+  /* SECTION HEADERS */
+  .sect{padding:76px 0;}
+  .sect-head{max-width:56ch; margin-bottom:44px;}
+  .sect-head h2{font-size:clamp(26px,3.4vw,36px); font-weight:700; margin-bottom:12px;}
+  .sect-head p{color:var(--steel); font-size:16.5px;}
+
+  /* SERVICES — spec-sheet rows */
+  .services-list{border-top:1px solid var(--line);}
+  .svc-row{
+    display:grid; grid-template-columns:40px 28px 1fr auto; gap:14px; align-items:start;
+    padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  .svc-icon{
+    width:40px; height:40px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .svc-code{
+    font-family:'Space Grotesk'; font-weight:600; color:var(--steel-light); font-size:14px; padding-top:10px;
+  }
+  .svc-title{font-family:'Space Grotesk'; font-weight:600; font-size:19px; margin-bottom:6px;}
+  .svc-desc{color:var(--steel); font-size:15px; max-width:52ch;}
+  .svc-tag{
+    align-self:center; font-size:13px; color:var(--copper); border:1px solid var(--line);
+    padding:6px 12px; white-space:nowrap; font-weight:600;
+  }
+  @media (max-width:640px){
+    .svc-row{grid-template-columns:36px 1fr; column-gap:14px;}
+    .svc-icon{width:34px; height:34px;}
+    .svc-code{display:none;}
+    .svc-tag{grid-column:1/-1; justify-self:start; margin-top:10px;}
+  }
+
+  /* PROCESS */
+  .process{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .process-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;
+  }
+  .process-grid::before{
+    content:""; position:absolute; top:23px; left:26px; right:26px; height:1px;
+    background:repeating-linear-gradient(90deg, var(--copper) 0 6px, transparent 6px 12px);
+    opacity:.55;
+  }
+  .step{
+    padding:34px 26px; border-left:1px solid var(--line); position:relative;
+  }
+  .step:first-child{border-left:none;}
+  .step-num{
+    font-family:'Space Grotesk'; font-weight:700; font-size:13px; color:var(--white); margin-bottom:16px;
+    background:var(--copper); width:26px; height:26px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; position:relative; z-index:1;
+  }
+  .step h3{font-size:17.5px; font-weight:600; margin-bottom:8px;}
+  .step p{font-size:14.5px; color:var(--steel);}
+  @media (max-width:800px){
+    .process-grid{grid-template-columns:1fr 1fr;}
+    .process-grid::before{display:none;}
+    .step:nth-child(3){border-left:none;}
+  }
+  @media (max-width:520px){
+    .process-grid{grid-template-columns:1fr;}
+    .step{border-left:none; border-top:1px solid var(--line); padding-left:0; padding-right:0;}
+    .step:first-child{border-top:none;}
+  }
+
+  /* COVERAGE */
+  .coverage{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .coverage-map svg{width:100%; height:auto;}
+  .coverage-list{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .coverage-list span{
+    font-size:14px; border:1px solid var(--line); padding:7px 14px; color:var(--steel);
+  }
+  @media (max-width:800px){
+    .coverage{grid-template-columns:1fr;}
+    .coverage-map{order:-1; max-width:320px; margin:0 auto;}
+  }
+
+  /* URGENCY BANNER */
+  .urgency{
+    background:var(--copper); color:var(--white);
+    padding:44px 0;
+  }
+  .urgency .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .urgency h2{color:var(--white); font-size:clamp(22px,3vw,30px); max-width:34ch;}
+  .urgency p{color:#F3E6C9; margin-top:8px; font-size:15px;}
+  .btn-on-copper{
+    background:var(--ink); color:var(--white); padding:15px 26px; font-weight:600; font-size:15.5px;
+  }
+  .btn-on-copper:hover{background:#0B1B29;}
+
+  /* TESTIMONIAL */
+  .testimonial{max-width:64ch;}
+  .stars{display:flex; gap:4px; margin-bottom:18px;}
+  .testimonial blockquote{
+    font-family:'Space Grotesk'; font-size:clamp(20px,2.6vw,26px); font-weight:500;
+    color:var(--ink); line-height:1.35; margin-bottom:18px;
+  }
+  .testimonial cite{font-style:normal; color:var(--steel); font-size:14.5px;}
+
+  /* FOOTER / CONTACT */
+  footer{background:var(--ink); color:var(--paper-2); padding:64px 0 32px;}
+  .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid #1F5052;}
+  .foot-brand{font-family:'Space Grotesk'; font-weight:600; font-size:20px; color:var(--white); margin-bottom:12px;}
+  .foot-grid p{font-size:14.5px; color:#9FC0B8; max-width:36ch;}
+  footer h4{font-size:13px; text-transform:uppercase; letter-spacing:.06em; color:#6FA69C; margin-bottom:14px; font-weight:600;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px; font-size:14.5px; color:#D8EAE4;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    padding-top:24px; font-size:13px; color:#6FA69C;
+  }
+  @media (max-width:700px){ .foot-grid{grid-template-columns:1fr;} }
+
+  /* FLOATING WHATSAPP */
+  .wa-float{
+    position:fixed; right:20px; bottom:20px; z-index:150;
+    background:#25A25A; color:var(--white); width:56px; height:56px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(20,41,60,.28);
+  }
+  .wa-float:hover{background:#1E8A4C;}
+</style>
+</head>
+<body>
+
+<div class="demo-badge">Página de demostración — diseño de <b>portafolio</b>, negocio ficticio, no operativo</div>
+
+<header>
+  <nav class="nav wrap">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" fill="none">
+        <path d="M6 22V13a3 3 0 0 1 3-3h6V6" stroke="#A8752E" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="9" cy="6" r="2.6" stroke="#0F3B3D" stroke-width="2.2"/>
+        <path d="M15 10h6a3 3 0 0 1 3 3v9" stroke="#0F3B3D" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="2.6" stroke="#A8752E" stroke-width="2.2"/>
+      </svg>
+      <span>Gasfitería Rioseco</span>
+    </div>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="nav-cta" href="#contacto">Pedir visita</a>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <div class="kicker">Gasfitería en Viña del Mar</div>
+    <h1>Cañerías, fugas y calefont, resueltos por alguien que conoce cada casa del plan y el cerro</h1>
+    <p class="lead">Atendemos destapes, fugas y mantención de calefont en Viña del Mar, Reñaca y Concón. Diagnóstico claro antes de cotizar, sin sorpresas en la boleta.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#contacto">Solicitar visita técnica</a>
+      <a class="btn-ghost" href="tel:+56900000000">Llamar ahora</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="num">12 años</span><span class="lbl">atendiendo el plan y los cerros</span></div>
+      <div><span class="num">40 min</span><span class="lbl">promedio de llegada en urgencias</span></div>
+      <div><span class="num">3 comunas</span><span class="lbl">Viña, Reñaca y Concón</span></div>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="420" height="420" fill="#E1EAE6"/>
+      <g stroke="#5C7B76" stroke-width="1" opacity="0.4">
+        <line x1="0" y1="60" x2="420" y2="60"/><line x1="0" y1="140" x2="420" y2="140"/>
+        <line x1="0" y1="220" x2="420" y2="220"/><line x1="0" y1="300" x2="420" y2="300"/>
+        <line x1="0" y1="380" x2="420" y2="380"/>
+        <line x1="60" y1="0" x2="60" y2="420"/><line x1="140" y1="0" x2="140" y2="420"/>
+        <line x1="220" y1="0" x2="220" y2="420"/><line x1="300" y1="0" x2="300" y2="420"/>
+        <line x1="380" y1="0" x2="380" y2="420"/>
+      </g>
+      <path d="M60 340 V220 H180 V140 H300 V80" stroke="#0F3B3D" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M60 340 V220 H180 V140 H300 V80" stroke="#A8752E" stroke-width="6" stroke-linecap="round" fill="none" stroke-dasharray="1 26"/>
+      <circle cx="60" cy="340" r="9" fill="#0F3B3D"/>
+      <circle cx="180" cy="220" r="7" fill="#FBFCFB" stroke="#0F3B3D" stroke-width="3"/>
+      <circle cx="300" cy="140" r="7" fill="#FBFCFB" stroke="#A8752E" stroke-width="3"/>
+      <circle cx="300" cy="80" r="9" fill="#A8752E"/>
+      <text x="72" y="335" font-family="Space Grotesk" font-size="12" fill="#5C7B76">Ø 20mm</text>
+      <text x="192" y="215" font-family="Space Grotesk" font-size="12" fill="#5C7B76">válvula</text>
+      <text x="230" y="135" font-family="Space Grotesk" font-size="12" fill="#5C7B76">Ø 32mm</text>
+      <text x="310" y="76" font-family="Space Grotesk" font-size="12" fill="#A8752E">calefont</text>
+    </svg>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <span><b>Boleta</b> con detalle de repuestos y mano de obra</span>
+    <span><b>Garantía</b> de 6 meses en toda reparación</span>
+    <span><b>Diagnóstico</b> antes de cotizar, sin costo si aceptas el trabajo</span>
+    <span><b>Urgencias</b> fuera de horario con recargo informado</span>
+  </div>
+</div>
+
+<section class="sect wrap" id="servicios">
+  <div class="sect-head">
+    <h2>Lo que resolvemos</h2>
+    <p>Cada visita empieza con el mismo diagnóstico: identificar el punto exacto de la falla antes de tocar nada.</p>
+  </div>
+  <div class="services-list">
+    <div class="svc-row">
+      <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8752E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 0 5.4-5.4l-2.3 2.3-2-2 2.3-2.3z"/></svg></div>
+      <div class="svc-code">01</div>
+      <div><div class="svc-title">Destape de cañerías</div><div class="svc-desc">Lavaplatos, ducha, WC y bajadas de edificio. Cámara si el destape a presión no es suficiente.</div></div>
+      <div class="svc-tag">Desde $25.000</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8752E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 6.5 6 10.8 6 14.5a6 6 0 0 0 12 0C18 10.8 15 6.5 12 2z"/></svg></div>
+      <div class="svc-code">02</div>
+      <div><div class="svc-title">Reparación de fugas</div><div class="svc-desc">Fugas visibles y fugas ocultas en muro o piso, detectadas antes de romper nada de más.</div></div>
+      <div class="svc-tag">Cotización en terreno</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8752E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c1 2-1 3-1 5a3 3 0 0 0 6 0c0-1-1-2-1-3 2 1 4 3.5 4 7a6 6 0 0 1-12 0c0-4 2-7 4-9z"/></svg></div>
+      <div class="svc-code">03</div>
+      <div><div class="svc-title">Instalación y mantención de calefont</div><div class="svc-desc">A gas o eléctrico. Revisión de tiro, presión y seguridad según norma.</div></div>
+      <div class="svc-tag">Desde $35.000</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8752E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h11M11 8l4 4-4 4M15 6v2M18 6v2M18 6a2 2 0 1 0 0 4"/></svg></div>
+      <div class="svc-code">04</div>
+      <div><div class="svc-title">Cambio de llaves y griferías</div><div class="svc-desc">Cocina, baño y jardín. Traemos repuestos genéricos y de marca según lo que prefieras.</div></div>
+      <div class="svc-tag">Desde $18.000</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8752E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10" /></svg></div>
+      <div class="svc-code">05</div>
+      <div><div class="svc-title">Remodelación de baños y cocinas</div><div class="svc-desc">Rehacemos la instalación completa cuando el problema no es un punto, es toda la red.</div></div>
+      <div class="svc-tag">Cotización en terreno</div>
+    </div>
+  </div>
+</section>
+
+<div class="process" id="proceso">
+  <div class="wrap sect">
+    <div class="sect-head">
+      <h2>Cómo trabajamos</h2>
+      <p>Cuatro pasos, del primer mensaje a la reparación terminada.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Nos escribes</h3>
+        <p>Cuéntanos qué pasa y en qué comuna estás. Coordinamos un horario el mismo día si es urgencia.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Diagnóstico en terreno</h3>
+        <p>Revisamos la falla real antes de hablar de precio. Sin diagnóstico no hay cotización seria.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Cotización clara</h3>
+        <p>Repuestos y mano de obra por separado, por escrito, antes de empezar el trabajo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Reparación y garantía</h3>
+        <p>Dejamos el área limpia y la reparación queda con 6 meses de garantía por escrito.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sect wrap" id="cobertura">
+  <div class="coverage">
+    <div>
+      <div class="sect-head" style="margin-bottom:0;">
+        <h2>Cobertura</h2>
+        <p>Trabajamos en Viña del Mar, Reñaca y Concón. Fuera de esa zona, consulta igual: a veces cubrimos comunas cercanas según la fecha.</p>
+      </div>
+      <div class="coverage-list">
+        <span>Viña del Mar — Plan</span>
+        <span>Viña del Mar — Cerros</span>
+        <span>Reñaca</span>
+        <span>Concón</span>
+        <span>Miraflores</span>
+        <span>Gómez Carreño</span>
+      </div>
+    </div>
+    <div class="coverage-map">
+      <svg viewBox="0 0 380 320" fill="none">
+        <path d="M40 260 Q30 180 70 120 Q110 60 180 50 Q260 40 300 90 Q340 130 320 200 Q300 260 240 280 Q160 300 100 290 Q50 280 40 260Z" fill="#E1EAE6" stroke="#5C7B76" stroke-width="1.5"/>
+        <circle cx="150" cy="150" r="6" fill="#A8752E"/>
+        <text x="162" y="154" font-family="Space Grotesk" font-size="12" fill="#0F3B3D">Viña del Mar</text>
+        <circle cx="230" cy="90" r="5" fill="#0F3B3D"/>
+        <text x="242" y="94" font-family="Space Grotesk" font-size="11" fill="#5C7B76">Reñaca</text>
+        <circle cx="280" cy="60" r="5" fill="#0F3B3D"/>
+        <text x="292" y="64" font-family="Space Grotesk" font-size="11" fill="#5C7B76">Concón</text>
+        <path d="M40 260 Q100 240 150 150 Q200 100 230 90" stroke="#A8752E" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="urgency">
+  <div class="wrap">
+    <div>
+      <h2>¿Fuga activa o sin agua caliente ahora mismo?</h2>
+      <p>Atendemos urgencias fuera de horario. El recargo se informa antes de confirmar la visita, nunca después.</p>
+    </div>
+    <a class="btn-on-copper" href="tel:+56900000000">Llamar a urgencias</a>
+  </div>
+</div>
+
+<section class="sect wrap">
+  <div class="testimonial">
+    <div class="stars" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A8752E"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A8752E"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A8752E"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A8752E"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A8752E"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6z"/></svg>
+    </div>
+    <blockquote>"Llegaron el mismo día por una fuga bajo el lavaplatos y me explicaron cada peso de la boleta antes de cobrar."</blockquote>
+    <cite>— Reseña de cliente, sector Miraflores, Viña del Mar</cite>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Gasfitería Rioseco</div>
+        <p>Servicio de gasfitería residencial en Viña del Mar, Reñaca y Concón. Diagnóstico, cotización y reparación en la misma visita cuando es posible.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>+56 9 0000 0000 (demo)</li>
+          <li>contacto@gasfiteriarioseco.cl</li>
+          <li>Lunes a sábado, 8:00–20:00</li>
+          <li>Urgencias fuera de horario</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li>Destape de cañerías</li>
+          <li>Reparación de fugas</li>
+          <li>Calefont</li>
+          <li>Remodelación</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Gasfitería Rioseco — Viña del Mar</span>
+      <span>Landing de portafolio · datos de contacto de ejemplo</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/56900000000?text=Hola%2C%20necesito%20un%20gasfiter" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#FBFCFB"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.3-1.1l-.3-.2-3.1.8.8-3-.2-.3C4.4 15 4 13.5 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.4 3.8 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+</body>
+</html>
