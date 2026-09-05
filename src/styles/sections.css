@@ -1,0 +1,209 @@
+/* SERVICES — spec-sheet rows */
+.services-list {
+  border-top: 1px solid var(--line);
+}
+
+.svc-row {
+  display: grid;
+  grid-template-columns: 40px 28px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.svc-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.svc-code {
+  font-family: 'Space Grotesk';
+  font-weight: 600;
+  color: var(--steel-light);
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.svc-title {
+  font-family: 'Space Grotesk';
+  font-weight: 600;
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.svc-desc {
+  color: var(--steel);
+  font-size: 15px;
+  max-width: 52ch;
+}
+
+.svc-tag {
+  align-self: center;
+  font-size: 13px;
+  color: var(--copper);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* PROCESS */
+.process {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: 26px;
+  right: 26px;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, var(--copper) 0 6px, transparent 6px 12px);
+  opacity: .55;
+}
+
+.step {
+  padding: 34px 26px;
+  border-left: 1px solid var(--line);
+  position: relative;
+}
+
+.step:first-child {
+  border-left: none;
+}
+
+.step-num {
+  font-family: 'Space Grotesk';
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--white);
+  margin-bottom: 16px;
+  background: var(--copper);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step h3 {
+  font-size: 17.5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 14.5px;
+  color: var(--steel);
+}
+
+/* COVERAGE */
+.coverage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.coverage-map svg {
+  width: 100%;
+  height: auto;
+}
+
+.coverage-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.coverage-list span {
+  font-size: 14px;
+  border: 1px solid var(--line);
+  padding: 7px 14px;
+  color: var(--steel);
+}
+
+/* URGENCY BANNER */
+.urgency {
+  background: var(--copper);
+  color: var(--white);
+  padding: 44px 0;
+}
+
+.urgency .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.urgency h2 {
+  color: var(--white);
+  font-size: clamp(22px, 3vw, 30px);
+  max-width: 34ch;
+}
+
+.urgency p {
+  color: #F3E6C9;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.btn-on-copper {
+  background: var(--ink);
+  color: var(--white);
+  padding: 15px 26px;
+  font-weight: 600;
+  font-size: 15.5px;
+}
+
+.btn-on-copper:hover {
+  background: #0B1B29;
+}
+
+/* TESTIMONIAL */
+.testimonial {
+  max-width: 64ch;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.testimonial blockquote {
+  font-family: 'Space Grotesk';
+  font-size: clamp(20px, 2.6vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 18px;
+}
+
+.testimonial cite {
+  font-style: normal;
+  color: var(--steel);
+  font-size: 14.5px;
+}

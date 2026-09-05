@@ -1,0 +1,79 @@
+:root {
+  --ink: #0F3B3D;
+  --paper: #EEF3F1;
+  --paper-2: #E1EAE6;
+  --steel: #5C7B76;
+  --steel-light: #9DB6AF;
+  --copper: #A8752E;
+  --copper-dark: #8A5F22;
+  --line: #C6D6D0;
+  --white: #FBFCFB;
+  --maxw: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background:
+    linear-gradient(var(--paper), var(--paper)) fixed,
+    repeating-linear-gradient(0deg, rgba(15, 59, 61, .05) 0 1px, transparent 1px 88px),
+    repeating-linear-gradient(90deg, rgba(15, 59, 61, .05) 0 1px, transparent 1px 88px),
+    var(--paper);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+h1,
+h2,
+h3,
+.disp {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ink);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Skip link / focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
